@@ -11,6 +11,11 @@ var generatePassword = function() {
       alert('Please enter a valid number.');
     }
   } while (isNaN(passwordLength));
+  var lowercaseCheck = confirm("Do you want to include lowercase letters?");
+  var uppercaseCheck = confirm("Do you want to include uppercase letters?");
+  var numberCheck = confirm("Do you want to include numbers?");
+  var specialCheck = confirm("Do you want to include special characters?");
+}
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
