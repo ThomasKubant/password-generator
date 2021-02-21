@@ -15,6 +15,40 @@ var generatePassword = function() {
   var uppercaseCheck = confirm("Do you want to include uppercase letters?");
   var numberCheck = confirm("Do you want to include numbers?");
   var specialCheck = confirm("Do you want to include special characters?");
+  for (i = 0; i < passwordLength; i++) {
+    var character = Math.floor(Math.random() * 4 + 1);
+    var randomLetter = lowerLetter[Math.floor(Math.random() * 25 + 1)];
+    var randomLetterUpper = upperLetter[Math.floor(Math.random() * 25 + 1)];
+    var randomNumber = number[Math.floor(Math.random() * 9 + 1)];
+    var randomSpecial = special[Math.floor(Math.random() * 14 + 1)];
+    if(character === 1 && lowercaseCheck) {
+      password = password + randomLetter;
+    }
+    else if (character === 1 && !lowercaseCheck) {
+      i--;
+    }
+    if(character === 2 && uppercaseCheck) {
+      password = password + randomLetterUpper;
+    }
+    else if (character === 2 && !uppercaseCheck) {
+      i--;
+    }
+    if(character === 3 && numberCheck) {
+      password = password + randomNumber;
+    }
+    else if (character === 3 && !numberCheck) {
+      i--;
+    }
+    if(character === 4 && specialCheck) {
+      password = password + randomSpecial;
+    }
+    else if (character === 4 && !specialCheck) {
+      i--;
+    }
+    console.log(i);
+  }
+  console.log(password.length);
+  return password;
 }
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
